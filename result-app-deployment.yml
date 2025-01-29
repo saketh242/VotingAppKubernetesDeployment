@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+ name: voting-results-deployment
+ labels: 
+  author: saketh
+spec:
+ replicas: 2
+ selector:
+  matchLabels:
+   name: voting-result
+ template:
+  metadata: 
+   name: voting-result-pod
+   labels:
+     name: voting-result
+  spec:
+   containers: 
+    - name: voting-result-container
+      image: dockersamples/examplevotingapp_result
+...

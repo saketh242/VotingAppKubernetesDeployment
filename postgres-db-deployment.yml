@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+ name: postgres-db-deployment
+ labels:
+  author: saketh
+spec:
+ replicas: 1
+ selector: 
+  matchLabels: 
+   name: postgres-db
+ template: 
+  metadata: 
+   name: postgres-db-pod
+   labels:
+    name: postgres-db
+  spec:
+   containers: 
+    - name: my-postgres-db
+      image: postgres
+      env:
+       - name: POSTGRES_PASSWORD
+         valueFrom:
+          secretKeyRef: 
+           name: postgres-secret
+           key: password
+       - name: POSTGRES_DB
+         valueFrom: 
+           secretKeyRef: 
+            name: postgres-secret
+            key: db
+       - name: POSTGRES_USER
+         valueFrom: 
+           secretKeyRef:
+            name: postgres-secret
+            key: user
+...
+
