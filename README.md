@@ -40,7 +40,9 @@ This project consists of the following Kubernetes resources:
 🚨 The website and database are not connected, but this project serves as a demonstration of Kubernetes skills, particularly in managing deployments, services, and secrets.
 
 ## Screenshots
-
+![Kubernetes Cluster Screenshot](images/gcp.png)
+![Voting App Screenshot](images/gcp-vote.png)
+![Result App Screenshot](images/gcp-result.png)
 
 ## Future Improvements
 - Set up monitoring using Prometheus and Grafana.
